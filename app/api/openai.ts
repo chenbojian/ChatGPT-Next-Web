@@ -23,6 +23,8 @@ export async function handle(
     .replaceAll("Bearer ", "")
     .trim();
   const req_json = await req.json();
+  delete req_json.frequency_penalty;
+  delete req_json.presence_penalty;
 
   try {
     return await fetch(
